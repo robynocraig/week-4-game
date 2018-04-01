@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Robyn's Crystal Game</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- My CSS styling -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">CrystalsCollector</h1>
+      <h3 class="text-center">Can you beat me?</h3>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rules">
+    Click here to read the rules
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rulesTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rulesTitle">GAME RULES</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          1) You will be given a random number at the start of the game.
+          </br>
+          2) There are 4 crystals on the page. Each crystal is assigned an amount of points that is not displayed to you.
+          </br>
+          3) By clicking on a crystal you will add that assigned amount of points to your total score.
+          </br>
+          4) You win the game by matching your total score to the random number given to you at the beginning of the game.
+          </br>
+          5) You lose the game if your total score goes above that number.
+          </br>
+          6) Each time the game starts over, the value of the crystals will be changed.
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="firstRow">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1> Your Number: 69</h1>
+      </div>
+      <div class="col-lg-6">
+        <h2>Wins: 0</h2>
+        <h2>Losses: 0</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="secondRow">
+    <div class="row">
+      <div class="div col-lg-3">
+        <img src="assets/images/blue-gem.png" alt="Blue Gem" id="gem-img">
+      </div>
+      <div class="div col-lg-3">
+        <img src="assets/images/green-gem.png" alt="Green Gem" id="gem-img">
+      </div>
+      <div class="div col-lg-3">
+        <img src="assets/images/pink-gem.png" alt="Pink Gem" id="gem-img">
+      </div>
+      <div class="div col-lg-3">
+        <img src="assets/images/purple-gem.png" alt="Purple Gem" id="gem-img">
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="thirdRow">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1> Your Current Total Score: 69</h1>
+      </div>
+    </div>
+  </div>
+
+<!-- jQuery library -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- My JavaScript -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+</html>
