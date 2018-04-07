@@ -7,25 +7,25 @@ var totalScoreValue = 0;
 var wins = 0;
 var losses = 0;
 var userNumber = 0;
-var gemValues = [1,2,3,4,5,6,7,8,9,10,11,12];
-var gemValuesActiveBlue = [];
-var gemValuesActiveGreen = [];
-var gemValuesActivePink = [];
-var gemValuesActivePurple = [];
+
+// Function to find random number
+function randomNumber (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
   // Resets all values at the end of a round
   function reset () {
 
     // Creates new number for the user
-    userNumber = Math.floor(Math.random() * 101) + 19;
+    userNumber = randomNumber(19,120);
     $("#userNumberText").text("Your Number: " + userNumber);
     console.log("New User Number " + userNumber);
 
     // Creates new gem values
-    blueGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-    greenGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-    pinkGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-    purpleGem = gemValues[Math.floor(Math.random() * gemValues.length)];
+    blueGem = randomNumber(1,12);
+    greenGem = randomNumber(1,12);
+    pinkGem = randomNumber(1,12);
+    purpleGem = randomNumber(1,12);
 
     // Sets total score to 0
     totalScoreValue = 0;
@@ -35,7 +35,7 @@ var gemValuesActivePurple = [];
   $(document).ready(function() {
 
     // Sets random number for the user
-    userNumber = Math.floor(Math.random() * 101) + 19;
+    userNumber = randomNumber(19,120);
 
     console.log("User Number: " + userNumber);
 
@@ -44,47 +44,33 @@ var gemValuesActivePurple = [];
 
     // Set random number for each gem and ensure the numbers don't repeat
 
-    //blueGem = Math.floor(Math.random() * 12) + 1;
-
-    blueGem = gemValues[Math.floor(Math.random() * gemValues.length)];
+    blueGem = randomNumber(1,12);
 
     console.log("blue: " + blueGem);
 
-    gemValuesActiveBlue.push(blueGem);
-    console.log(gemValuesActiveBlue)
+    greenGem = randomNumber(1,12);
 
-    greenGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-
-      if ((greenGem === gemValuesActiveBlue)) {
-        greenGem = gemValues[Math.floor(Math.random() * gemValues.length)];
+      if ((greenGem === blueGem)) {
+        greenGem = randomNumber(1,12);
       }
 
     console.log("green: " + greenGem);
 
-    gemValuesActiveGreen.push(greenGem);
-    console.log(gemValuesActiveGreen)
+    pinkGem = randomNumber(1,12);
 
-    pinkGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-
-      if ((pinkGem === gemValuesActiveBlue) && (pinkGem === gemValuesActiveGreen)) {
-        gemValues[Math.floor(Math.random() * gemValues.length)];
+      if ((pinkGem === blueGem) && (pinkGem === greenGem)) {
+        pinkGem = randomNumber(1,12);
       }
 
     console.log("pink: " + pinkGem);
 
-    gemValuesActivePink.push(pinkGem);
-    console.log(gemValuesActivePink)
+    purpleGem = randomNumber(1,12);
 
-    purpleGem = gemValues[Math.floor(Math.random() * gemValues.length)];
-
-      if ((purpleGem === gemValuesActiveBlue) && (purpleGem === gemValuesActiveGreen) && (purpleGem === gemValuesActivePink)) {
-        gemValues[Math.floor(Math.random() * gemValues.length)];
+      if ((purpleGem === blueGem) && (purpleGem === greenGem) && (purpleGem === pinkGem)) {
+        purpleGem = randomNumber(1,12);
       }
 
     console.log("purple: " + purpleGem);
-
-    gemValuesActivePurple.push(purpleGem);
-    console.log(gemValuesActivePurple)
 
     // If total number is < user number, keep playing
 
@@ -96,6 +82,11 @@ var gemValuesActivePurple = [];
         totalScoreValue = totalScoreValue + blueGem;
         $("#totalScore").text("Your Total Score: " + totalScoreValue);
         console.log("Total Score: " + totalScoreValue);
+
+        var blueGemFade = $("#blueGem");
+        blueGemFade.animate({opacity: '0.4'}, "slow");
+        blueGemFade.animate({opacity: '1.0'}, "slow");
+
         // If total number is equal to user number, add a win
         if ((totalScoreValue === userNumber)) {
           wins++;
@@ -116,6 +107,11 @@ var gemValuesActivePurple = [];
         totalScoreValue = totalScoreValue + greenGem;
         $("#totalScore").text("Your Total Score: " + totalScoreValue);
         console.log("Total Score: " + totalScoreValue)
+
+        var greenGemFade = $("#greenGem");
+        greenGemFade.animate({opacity: '0.4'}, "slow");
+        greenGemFade.animate({opacity: '1.0'}, "slow");
+
         // If total number is equal to user number, add a win
         if ((totalScoreValue === userNumber)) {
           wins++;
@@ -136,6 +132,11 @@ var gemValuesActivePurple = [];
         totalScoreValue = totalScoreValue + pinkGem;
         $("#totalScore").text("Your Total Score: " + totalScoreValue);
         console.log("Total Score: " + totalScoreValue)
+
+        var pinkGemFade = $("#pinkGem");
+        pinkGemFade.animate({opacity: '0.4'}, "slow");
+        pinkGemFade.animate({opacity: '1.0'}, "slow");
+
         // If total number is equal to user number, add a win
         if ((totalScoreValue === userNumber)) {
           wins++;
@@ -156,6 +157,11 @@ var gemValuesActivePurple = [];
         totalScoreValue = totalScoreValue + purpleGem;
         $("#totalScore").text("Your Total Score: " + totalScoreValue);
         console.log("Total Score: " + totalScoreValue)
+
+        var purpleGemFade = $("#purpleGem");
+        purpleGemFade.animate({opacity: '0.4'}, "slow");
+        purpleGemFade.animate({opacity: '1.0'}, "slow");
+
         // If total number is equal to user number, add a win
         if ((totalScoreValue === userNumber)) {
           wins++;
